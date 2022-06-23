@@ -14,6 +14,9 @@ const timerUpdate = setInterval(function() {
         console.log(minutes);
         }, 1000);
 
+
+
+
 start.addEventListener('click', () => {
     console.log('btn start');
 });
@@ -25,13 +28,6 @@ start.addEventListener('click', () => {
 pause.addEventListener('click', () => {
     console.log('btn pause');
 }); 
-
-
-
-
-
-
-
 
 
 let input = document.querySelector('input');
