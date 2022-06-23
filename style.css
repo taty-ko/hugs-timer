@@ -1,0 +1,112 @@
+body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #e7e1e6;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: hsl(289, 18%, 50%);
+    padding-top: 20px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 800px;
+    box-sizing: border-box;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;    
+    box-sizing: border-box;
+    width: 500px;
+    height: 200px;
+    border: 2px solid #f6a4e9;
+    box-shadow: 0px 4px 20px rgba(206, 25, 227, 0.906);
+    color:#000;
+    font-size: 60px;
+}
+
+
+.timer__item {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: #e7e1e6;
+    box-shadow: 1px 1px 5px rgba(252, 252, 252, 0.906);
+}
+
+#min,  #sec {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nativeDateTimePicker, .statementDateTimePicker {
+    padding: 10px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+
+}
+
+.btn {
+    width: 70px;
+    height: 30px;
+    margin: 10px;
+    transition: 0.3s all;
+}
+.btn:active {
+    background-color: #550440;
+    opacity: 0.4;
+}
+.btn:hover {
+    background-color: #550440;
+    color: #e7e1e6;
+
+}
+
+ .pulse {
+    animation: pulse 3s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+   50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+.text {
+    display: none;
+}
+.text.timeIsOver {
+    display: block;
+}
+
+
+

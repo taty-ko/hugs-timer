@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Timer</title>
+    <link rel="icon" type="image/x-icon" href="./icon_love.png" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="wrapper">
+        <div class="timer">
+          <div class="timer__item">
+            <span id="min">4</span>
+          </div>
+          <div class="timer__item">
+            <span id="sec">30</span>
+          </div>
+        </div>
+
+        <div class="inputs">
+          <form>
+            <div class="nativeDateTimePicker">
+              <label for="timer"
+                >Choose a time for starting it (minutes : seconds)
+              </label>
+              <input type="time" id="time" name="timer" />
+            </div>
+            <div class="statementDateTimePicker">
+              <label for="timer">Choose a time:</label>
+              <select name="timer" id="time">
+                <option value="a">1:00</option>
+                <option value="b">3:00</option>
+                <option value="c">5:00</option>
+                <option value="d">10:00</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <div class="btns">
+          <button class="btn stop">stop</button>
+          <button class="btn start pulse">start</button>
+          <button class="btn pause">pause</button>
+        </div>
+      </div>
+
+      <div class="text timeIsOver">
+        <p>Time is over. Go hugging &#9829;</p>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
