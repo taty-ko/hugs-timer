@@ -7,7 +7,8 @@ const minutes = document.querySelector('#min'),
       start = document.querySelector('.start'),
       pause = document.querySelector('.pause'),
       stop = document.querySelector('.stop'), 
-      inputTime = document.getElementById('getTime');
+      inputTime = document.getElementById('getTime'),
+      selectTime = document.getElementById('timepicker');
 
       
 /* const timerUpdate = setInterval(function() {
@@ -22,8 +23,9 @@ start.addEventListener('click', function getValue(event) {
 
     const val = document.getElementById('getTime');
     
-    // Send value to server
-    console.log(val.value);
+    let time = val.value
+    composeAndSetValuesToTimerItem(time);
+   
 });
 
  stop.addEventListener('click', function stopValue(event) {
@@ -49,10 +51,20 @@ pause.addEventListener('click', () => {
 
   }); 
 
-/* inputTime.addEventListener('click', function getValue() {
-    const val = document.getElementById("getTime").value;
-    console.log(val);
-}) */
+
+selectTime.addEventListener('change', function getTimeOption (event) {
+
+  const val = selectTime.options[selectTime.selectedIndex].text;
+  console.log(val);
+  composeAndSetValuesToTimerItem(val);
+});
+
+// Функция, которая принимает строку, которую нужно разбить на массив по ':', и подставить в таймер элемент первый и второй соответственно.
+function composeAndSetValuesToTimerItem(value) {
+  let arrSplittedValues = value.split(':');
+  minutes.textContent = arrSplittedValues[0];
+  seconds.textContent = arrSplittedValues[1];
+}
 
 });
 
