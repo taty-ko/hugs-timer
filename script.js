@@ -20,40 +20,48 @@ const minutes = document.querySelector('#min'),
 
 
 start.addEventListener('click', function getValue(event) {
-
-    const val = document.getElementById('getTime');
-    
-    let time = val.value
+    let time = inputTime.value
     composeAndSetValuesToTimerItem(time);
-   
 });
 
- stop.addEventListener('click', function stopValue(event) {
-    const val = document.getElementById('getTime');
-     val.value = "set time again";
-     console.log(val.value);
+stop.addEventListener('click', function stopValue(event) {
+    inputTime.value = "set time again";
+    console.log(inputTime.value);
 });
 
 pause.addEventListener('click', () => {
     console.log('btn pause');
 }); 
 
-  inputTime.addEventListener('click', function getValue(event) {
-  
-    const val = document.getElementById('getTime');
+inputTime.addEventListener('change', function getValue(event) {
+    console.log(inputTime); 
+}); 
+
+inputTime.addEventListener('input', function getValue(event) {
+    const inputContent = inputTime.value;
+
+    // 1, в строке не больше 5 символов.
+    if (inputContent.length >= 6) {
+      inputTime.value = inputContent.substring(0, 5);
+      return;
+    }
+
+    // в строке только цифры и двоеточие (одно)
+    const lastChar = getLastChar(inputContent);
+
+    if (!isNumeric(lastChar) && lastChar != ":") {
+      inputTime.value = inputContent.substring(0, inputContent.length - 1);
+      return;
+    }
+
+    // проверить, чтобы ":" было один раз
+
     
-    // Send value to server
-    console.log(val.value);
-
-  
-    /* // 👇️ clear input field
-   val.placeholder = ''; */
-
-  }); 
+        
+}); 
 
 
 selectTime.addEventListener('change', function getTimeOption (event) {
-
   const val = selectTime.options[selectTime.selectedIndex].text;
   console.log(val);
   composeAndSetValuesToTimerItem(val);
@@ -68,4 +76,12 @@ function composeAndSetValuesToTimerItem(value) {
 
 });
 
+function getLastChar(str) {
+  return str[str.length - 1];
+};
 
+function isNumeric(str) {
+  if (typeof str != "string") return false // we only process strings!  
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
